@@ -1,12 +1,8 @@
 # Netlify Configuration for Smart Waste Frontend
 
 [build]
-  # Base directory (root of the frontend folder)
-  base = "frontend"
-  # Build command to run
-  command = "npm run build"
-  # Directory containing the built files (relative to base)
-  publish = "dist"
+  command = "cd frontend && npm install && npm run build"
+  publish = "frontend/dist"
 
 [build.environment]
   NODE_VERSION = "20"
