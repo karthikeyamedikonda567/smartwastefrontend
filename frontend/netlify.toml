@@ -1,19 +1,11 @@
 # Netlify Configuration for Smart Waste Frontend
-# This file configures build settings and redirects for Netlify deployment
 
 [build]
-  # Build command to run
-  command = "npm run build"
-  # Directory containing the built files
+  command = "npm ci && npm run build"
   publish = "dist"
-  # Base directory (root of the frontend folder)
-  base = "frontend"
 
 [build.environment]
-  # Node.js version to use
-  NODE_VERSION = "18"
-  # NPM version
-  NPM_VERSION = "9"
+  NODE_VERSION = "20"
 
 # Handle SPA routing - redirect all routes to index.html
 [[redirects]]
