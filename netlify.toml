@@ -5,8 +5,8 @@
   base = "frontend"
   # Build command to run
   command = "npm run build"
-  # Directory containing the built files
-  publish = "frontend/dist"
+  # Directory containing the built files (relative to base)
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
