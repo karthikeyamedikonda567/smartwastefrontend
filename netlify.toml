@@ -1,0 +1,18 @@
+# Netlify Configuration for Smart Waste Frontend
+
+[build]
+  # Base directory (root of the frontend folder)
+  base = "frontend"
+  # Build command to run
+  command = "npm run build"
+  # Directory containing the built files
+  publish = "frontend/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Handle SPA routing - redirect all routes to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
