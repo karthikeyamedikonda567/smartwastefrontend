@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -27,4 +30,26 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    // Production optimizations
+    minify: 'esbuild',
+    sourcemap: false,
+    // Chunk splitting for better caching
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['lucide-react', 'framer-motion'],
+          'data-vendor': ['@tanstack/react-query', 'axios', 'zustand'],
+          'charts': ['recharts'],
+        },
+      },
+    },
+    // Target modern browsers
+    target: 'es2020',
+    // Set chunk size warning limit
+    chunkSizeWarningLimit: 1000,
+  },
+  // Environment variable prefix
+  envPrefix: 'VITE_',
 })
