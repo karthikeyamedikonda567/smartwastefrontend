@@ -7,6 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/smartwastefrontend/',
   plugins: [react()],
   resolve: {
     alias: {
